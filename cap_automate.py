@@ -168,6 +168,3 @@ def clean_filename(title):
 
     return new_title
 
-
-test = AutoCaption("https://www.youtube.com/watch?v=qLkYNFyjWl0")
-test.auto_caption()
