@@ -175,7 +175,7 @@ def getPhrasesFromTranscript(transcript):
 	# if you only have the translation of the transcript, then you should call getPhrasesFromTranslation instead
 
 	# Now create phrases from the translation
-	print(transcript)
+
 	ts = transcript
 	items = ts['results']['items']
 	#print( items )

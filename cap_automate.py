@@ -9,8 +9,6 @@ from pathlib import Path
 from youtube_api import YouTube
 
 
-
-
 class AutoCaption(object):
 
     def __init__(self, video_link):

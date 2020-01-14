@@ -19,7 +19,6 @@ class Amara(object):
 
 
     def post_video(self):
-        print(self.video_url)
         post_data = {
 
             "video_url": self.video_url,
@@ -29,10 +28,10 @@ class Amara(object):
         }
 
         post_video = requests.post("https://amara.org/api/videos/", headers=self.auth_header, data=post_data)
-        print("post vid", self.video_id, post_video.content)
         self.metadata = json.loads(post_video.content)
         self.video_id = self.metadata['id']
 
+        print("Amara Video Located Here: amara.org/en/videos/{}".format(self.metadata['id']))
         return self.video_id
 
     def post_subtitle(self):
@@ -53,4 +52,5 @@ class Amara(object):
         post_subtitles = requests.post("https://amara.org/api/videos/{}/languages/en-US/subtitles/".format(self.video_id),
                                        headers=self.auth_header,
                                        data=sub_post_data)
-        print("post sub", post_subtitles)
+        print("Subtitles Posted", post_subtitles)
+
