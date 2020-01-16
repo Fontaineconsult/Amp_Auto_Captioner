@@ -91,6 +91,18 @@ class AutoCaption(object):
         for f in video_files:
             os.remove(f)
 
+    def upload_only(self):
+        if self.verify_link_type():
+            print("Copying Video")
+            self.copy_video()
+        else:
+            print("Downloading")
+            self.download_video()
+
+        print("Uploading")
+        self.upload_to_S3()
+        print("The Uploaded File is located here: {}".format(self.S3Uploader.media_uri))
+
 
     def auto_caption(self):
 
@@ -166,3 +178,6 @@ def clean_filename(title):
 
     return new_title
 
+
+test = AutoCaption("http://www.youtube.com/watch?v=V-phtvWfKlA")
+test.upload_only()
